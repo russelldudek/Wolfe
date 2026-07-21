@@ -1,0 +1,92 @@
+[
+  {
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "overflow": 0,
+    "logo": true,
+    "h1": "Every AI decision should know the\nterms of its data.",
+    "card_inside_theater": true,
+    "card_animation": "card-settle",
+    "document_links": 4,
+    "errors": []
+  },
+  {
+    "viewport": "laptop",
+    "width": 1280,
+    "height": 800,
+    "overflow": 0,
+    "logo": true,
+    "h1": "Every AI decision should know the\nterms of its data.",
+    "card_inside_theater": true,
+    "card_animation": "card-settle",
+    "document_links": 4,
+    "errors": []
+  },
+  {
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024,
+    "overflow": 0,
+    "logo": true,
+    "h1": "Every AI decision should know the\nterms of its data.",
+    "card_inside_theater": true,
+    "card_animation": "card-settle",
+    "document_links": 4,
+    "errors": []
+  },
+  {
+    "viewport": "mobile",
+    "width": 390,
+    "height": 844,
+    "overflow": 0,
+    "logo": true,
+    "h1": "Every AI decision should know the\nterms of its data.",
+    "card_inside_theater": true,
+    "card_animation": "card-settle",
+    "document_links": 4,
+    "errors": []
+  },
+  {
+    "viewport": "narrow",
+    "width": 320,
+    "height": 800,
+    "overflow": 0,
+    "logo": true,
+    "h1": "Every AI decision should know the\nterms of its data.",
+    "card_inside_theater": true,
+    "card_animation": "card-settle",
+    "document_links": 4,
+    "errors": []
+  },
+  {
+    "motion_intermediate": {
+      "heroCardTransform": "matrix3d(0.90483, -0.176955, 0.219452, 0, 0.181899, 0.930109, 0, 0, -0.227251, 0.0444429, 0.972822, 0, 52.2711, -17.4237, 40.9605, 1)",
+      "scanOpacity": "0.196367",
+      "heroCardAnimation": "card-settle"
+    },
+    "interaction_support": {
+      "dataset": "Customer Support Knowledge",
+      "posture": "APPROVED",
+      "pressed": "true",
+      "status": "approved",
+      "processing": false
+    },
+    "rapid_final_state": {
+      "dataset": "Partner Product Catalog",
+      "posture": "HOLD",
+      "pressed": "true",
+      "status": "hold",
+      "processing": false
+    }
+  },
+  {
+    "reduced_motion": {
+      "revealRemaining": 0,
+      "heroAnimation": "1e-06s",
+      "sourceAnimation": "1e-06s",
+      "overflow": 0,
+      "scenarioStatus": "approved"
+    }
+  }
+]

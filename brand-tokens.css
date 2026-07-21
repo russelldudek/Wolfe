@@ -1,0 +1,17 @@
+:root {
+  /* Source-sampled from the official Wolfe logo and official web page styling. */
+  --wolfe-charcoal: #383838;
+  --wolfe-orange: #ff8900;
+  --wolfe-white: #ffffff;
+  --wolfe-smoke: #f4f3f0;
+  --wolfe-ink: #20211f;
+  --wolfe-muted: #686963;
+  --wolfe-line: #d8d6cf;
+
+  /* Candidate-original accents tied to the Data Use Card mechanism. */
+  --confidence-green: #4d745d;
+  --conditional-gold: #b56e00;
+  --hold-red: #9c463f;
+  --reader-black: #141512;
+  --card-silver: #d9d9d2;
+}

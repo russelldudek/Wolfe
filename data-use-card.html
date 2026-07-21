@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Russell Dudek - Wolfe Data Use Card Standard</title><link rel="stylesheet" href="documents.css"></head><body class="card-document">
+<nav class="document-toolbar" aria-label="Document actions"><a href="index.html">Candidate Vision</a><a href="interview-brief.html">Interview Brief</a><a href="120-day-plan.html">120-Day Plan</a><a class="primary" href="docs/Russell-Dudek-Wolfe-Data-Use-Card-Standard.pdf" download="Russell-Dudek-Wolfe-Data-Use-Card-Standard.pdf">Download PDF</a></nav>
+<main class="document">
+<section class="sheet">
+<header class="doc-header"><img src="assets/brand/wolfe-logo.png" alt="Wolfe logo"><div class="identity"><h1>Data Use Card Standard</h1><div class="role-line">Illustrative operating artifact · Russell Dudek</div><div class="contact-line">Candidate for VP, Data Platform &amp; Knowledge · https://russelldudek.github.io/Wolfe/</div></div></header>
+<div class="brief-hero"><div><h2>Make the terms visible before AI use.</h2><p style="margin-top:11px;font-size:10.8px">A Data Use Card is a compact human- and machine-readable contract that tells a team what a dataset is, whether it is fit for a use, who owns it, what it may do, and what happens when it fails.</p></div><div class="brief-summary"><strong>Illustrative purpose</strong><br>Demonstrate the operating mechanism. Final fields, thresholds, tooling, and decisions require Wolfe discovery and architecture review.</div></div>
+<div class="data-card-page">
+<div class="data-card-visual"><div class="top"><span>DATA USE CARD</span><span>APPROVED</span></div><div class="dataset">Merchant Transaction Events</div><div class="code">WOLFE · DUC-001 · TERMS V1.0</div><div class="fields"><div><span>Quality</span><strong>Priority fields rated</strong></div><div><span>Meaning</span><strong>Semantic contract live</strong></div><div><span>Service</span><strong>Under-24h target</strong></div></div></div>
+</div>
+<h2>Minimum Contract</h2>
+<div class="card-spec"><div><strong>Identity</strong>Dataset name, domain, source systems, version, authoritative fields, lifecycle state.</div><div><strong>Ownership</strong>Data product owner, source steward, technical owner, issue-remediation owner.</div><div><strong>Meaning</strong>Definitions, units, examples, semantic relationships, known ambiguity, change history.</div><div><strong>Quality</strong>Dimensions, score, critical-field coverage, freshness, completeness, duplicate and reconciliation rules.</div><div><strong>Use Terms</strong>Approved AI and analytical uses, prohibited uses, restrictions, required joins, intended decisions.</div><div><strong>Authority</strong>Human decision rights, abstention/escalation rules, access and entitlement boundaries.</div><div><strong>Service</strong>Detection, severity, escalation path, remediation SLA, communication, rollback/deprecation.</div><div><strong>Evidence</strong>Usage, questions, incidents, model outcomes, rework, adoption, learning and next review.</div></div>
+<h2>Operating Rule</h2>
+<div class="callout"><strong>No invisible assumptions.</strong>A dataset may be technically accessible and still be unfit for an AI use. The platform should make an approved, conditional, or hold posture explicit - with the reason and the next responsible action.</div>
+<footer class="page-footer"><span>Data Use Card Standard · Russell Dudek</span><span>Page 1 of 2</span></footer>
+</section>
+
+<section class="sheet">
+<header class="doc-header"><img src="assets/brand/wolfe-logo.png" alt="Wolfe logo"><div class="identity"><h1>Issuance and Service</h1><div class="role-line">How the Data Use Card becomes platform behavior</div><div class="contact-line">Russell Dudek · Candidate for VP, Data Platform &amp; Knowledge</div></div></header>
+<h2>Issuance Path</h2>
+<table class="decision-table"><thead><tr><th>Stage</th><th>Required work</th><th>Exit evidence</th></tr></thead><tbody>
+<tr><td><strong>Register</strong></td><td>Name the source, owner, critical consumers, decisions, dependencies, sensitivity, and current state.</td><td>Dataset identity and accountability are explicit.</td></tr>
+<tr><td><strong>Assess</strong></td><td>Evaluate quality, freshness, lineage, semantic clarity, access, security, privacy, and fitness for the selected use.</td><td>Risks, unknowns, and required controls are visible.</td></tr>
+<tr><td><strong>Contract</strong></td><td>Define approved uses, restrictions, human authority, issue service, examples, and version behavior.</td><td>Terms are reviewable by domain, platform, security, and AI stakeholders.</td></tr>
+<tr><td><strong>Publish</strong></td><td>Expose the card in catalog, semantic search, developer workflow, and machine-readable metadata.</td><td>AI teams can discover and interpret it without private explanation.</td></tr>
+<tr><td><strong>Observe</strong></td><td>Monitor data quality, questions, use, incidents, model outcomes, adoption, and new semantic conflict.</td><td>Terms remain current and useful.</td></tr>
+<tr><td><strong>Renew or retire</strong></td><td>Reissue after material change; hold or retire when ownership, evidence, or service fails.</td><td>Stale trust does not remain production truth.</td></tr>
+</tbody></table>
+<h2>Posture Logic</h2>
+<div class="phase-grid">
+<div class="phase-card"><div class="phase-label">Approved</div><h3>Use within published terms</h3><p>Required identity, quality, meaning, ownership, authority, and service conditions are met for the named use.</p></div>
+<div class="phase-card"><div class="phase-label">Conditional</div><h3>Use with explicit control</h3><p>A known gap is bounded by a human checkpoint, restriction, use-case limit, or temporary service control.</p></div>
+<div class="phase-card"><div class="phase-label">Hold</div><h3>Do not use yet</h3><p>Authority, quality, semantic meaning, access, or remediation ownership is insufficient for the proposed use.</p></div>
+<div class="phase-card"><div class="phase-label">Retire</div><h3>Remove from active selection</h3><p>The dataset is superseded, stale, unowned, noncompliant, or no longer able to meet its published service contract.</p></div>
+</div>
+<h2>Issue Service Contract</h2>
+<table class="workstream-table"><thead><tr><th>Question</th><th>Required answer</th></tr></thead><tbody><tr><td>How is failure detected?</td><td>Quality rule, reconciliation, freshness monitor, usage feedback, incident, model behavior, or owner report.</td></tr><tr><td>Who owns response?</td><td>Named source steward, technical owner, domain owner, and executive escalation.</td></tr><tr><td>What is the clock?</td><td>Severity-specific detection, acknowledgment, containment, remediation, and communication targets.</td></tr><tr><td>Who must know?</td><td>Affected AI/product teams, business owners, security/legal/finance where relevant, and downstream consumers.</td></tr><tr><td>What changes afterward?</td><td>Root cause, card terms, scoring, observability, onboarding standard, or architecture - not merely the ticket status.</td></tr></tbody></table>
+<h2>First Pilot Review</h2>
+<div class="callout"><strong>Use one net-new source and two AI teams.</strong>Measure onboarding cycle, regression, question volume, source-selection success, issue age, rework, and the specific fields teams still need. The standard earns scale by reducing uncertainty in real work.</div>
+<footer class="page-footer"><span>Data Use Card Standard · Russell Dudek · https://russelldudek.github.io/Wolfe/</span><span>Page 2 of 2</span></footer>
+</section>
+</main></body></html>
