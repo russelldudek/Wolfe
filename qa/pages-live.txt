@@ -1,0 +1,4 @@
+Live site: https://russelldudek.github.io/Wolfe/
+Deployment source: 5929a1f5440bbd2d9f092e6a5c7cc66107f826b9
+Deployed from: main
+Candidate vision: Wolfe — VP, Data Platform & Knowledge
