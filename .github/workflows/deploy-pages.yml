@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -29,6 +29,18 @@ jobs:
         with:
           enablement: true
 
+      - name: Prepare deployment receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa
+          cat > qa/pages-live.txt <<EOF
+          Live site: https://russelldudek.github.io/Wolfe/
+          Deployment source: ${GITHUB_SHA}
+          Deployed from: main
+          Candidate vision: Wolfe — VP, Data Platform & Knowledge
+          EOF
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
@@ -37,3 +49,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Commit successful deployment receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Russell Dudek"
+          git config user.email "russelldudek@users.noreply.github.com"
+          git add qa/pages-live.txt
+          git commit -m "[skip ci] Record live Wolfe Pages deployment"
+          git push origin HEAD:main
