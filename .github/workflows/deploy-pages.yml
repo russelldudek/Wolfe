@@ -29,18 +29,6 @@ jobs:
         with:
           enablement: true
 
-      - name: Prepare deployment receipt
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p qa
-          cat > qa/pages-live.txt <<EOF
-          Live site: https://russelldudek.github.io/Wolfe/
-          Deployment source: ${GITHUB_SHA}
-          Deployed from: main
-          Candidate vision: Wolfe — VP, Data Platform & Knowledge
-          EOF
-
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
@@ -50,12 +38,69 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Commit successful deployment receipt
+      - name: Verify exact live campaign files
         shell: bash
         run: |
           set -euo pipefail
+          site="https://russelldudek.github.io/Wolfe/"
+          files=(
+            index.html
+            styles.css
+            app.js
+            resume.html
+            cover-letter.html
+            interview-brief.html
+            120-day-plan.html
+            data-use-card.html
+            assets/brand/wolfe-logo.png
+            docs/Russell-Dudek-Wolfe-Resume.pdf
+            docs/Russell-Dudek-Wolfe-Cover-Letter.pdf
+            docs/Russell-Dudek-Wolfe-Interview-Thesis-Brief.pdf
+            docs/Russell-Dudek-Wolfe-120-Day-Entry-Plan.pdf
+            docs/Russell-Dudek-Wolfe-Data-Use-Card-Standard.pdf
+          )
+          mkdir -p /tmp/wolfe-live
+          for attempt in $(seq 1 18); do
+            all_ok=true
+            for file in "${files[@]}"; do
+              mkdir -p "/tmp/wolfe-live/$(dirname "$file")"
+              if ! curl --fail --silent --show-error --location \
+                "${site}${file}?source=${GITHUB_SHA}" \
+                --output "/tmp/wolfe-live/${file}"; then
+                all_ok=false
+                break
+              fi
+              if ! cmp --silent "$file" "/tmp/wolfe-live/${file}"; then
+                all_ok=false
+                break
+              fi
+            done
+            if [ "$all_ok" = true ]; then
+              break
+            fi
+            if [ "$attempt" -eq 18 ]; then
+              echo "Live deployment did not converge to the audited source."
+              exit 1
+            fi
+            sleep 5
+          done
+          grep -Fq "Every AI decision should know the terms of its data." /tmp/wolfe-live/index.html
+          grep -Fq "VP, Data Platform &amp; Knowledge" /tmp/wolfe-live/index.html
+
+      - name: Commit successful live-verification receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa
+          cat > qa/pages-live.txt <<EOF
+          Live site: https://russelldudek.github.io/Wolfe/
+          Deployment source: ${GITHUB_SHA}
+          Deployed from: main
+          Exact live files verified: 14
+          Candidate vision: Wolfe — VP, Data Platform & Knowledge
+          EOF
           git config user.name "Russell Dudek"
           git config user.email "russelldudek@users.noreply.github.com"
           git add qa/pages-live.txt
-          git commit -m "[skip ci] Record live Wolfe Pages deployment"
+          git commit -m "[skip ci] Record verified Wolfe Pages deployment"
           git push origin HEAD:main
