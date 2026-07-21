@@ -1,26 +1,19 @@
-name: Materialize and publish candidate vision
+name: Materialize Wolfe candidate vision
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
-  group: wolfe-release
+  group: wolfe-materialize
   cancel-in-progress: false
 
 jobs:
-  publish:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  materialize:
     runs-on: ubuntu-latest
     steps:
       - name: Check out release source
@@ -98,17 +91,3 @@ jobs:
           git add -A
           git commit -m "Publish Wolfe candidate vision"
           git push origin HEAD:main
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      - name: Upload candidate vision
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
-      - name: Deploy candidate vision
-        id: deployment
-        uses: actions/deploy-pages@v4
