@@ -3,6 +3,8 @@ name: Materialize and publish candidate vision
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -21,7 +23,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Check out main
+      - name: Check out release source
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
